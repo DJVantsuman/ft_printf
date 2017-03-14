@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 17:42:10 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/14 18:09:18 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 18:29:13 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*f_alt(t_strf *f, char *s)
 
 	i = 0;
 	s1[0] = '0';
-	s1[1] = f->type;
+	s1[1] = f->type == 'X' ? 'X' : 'x';
 	s1[2] = '\0';
 	l = ft_strlen(s);
 	if (f->precision < 0 && (f->type == 'x' || f->type == 'X'))
@@ -100,7 +100,7 @@ char	*fill_width(char *s, t_strf *f)
 	l = ft_strlen(s);
 	if (is_f(f, '+') && f->type != 'u')
 		return (flag_plus(s, f));
-	else if (s[0] == '0' && s[1] == '\0')
+	else if (s[0] == '0' && s[1] == '\0' && f->type != 'p')
 		return (s);
 	if (f->width <= l && (!(is_f(f, ' ')) ||
 				(is_f(f, ' ') && s[0] == '-') || s[0] == '%') &&
@@ -111,7 +111,7 @@ char	*fill_width(char *s, t_strf *f)
 		return (ft_strjoin(" ", s));
 	else if (f->width > l && (s[0] != '\0' || f->type == 's'))
 		return (f1(s, f));
-	else if (is_f(f, '#') && (f->type == 'o' ||
+	else if (is_f(f, '#') && (f->type == 'o' || f->type == 'p' ||
 				f->type == 'x' || f->type == 'O' || f->type == 'X'))
 		return (f_alt(f, s));
 	return (s);

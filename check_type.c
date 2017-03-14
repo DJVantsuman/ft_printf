@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 18:15:26 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/14 17:43:13 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 18:24:46 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	check_type(const char *format, t_strf *f)
 				f->type = format[i];
 				if (f->type == 'p')
 				{
-					f->type = 'x';
 					f->flag[0] = '#';
 					f->mod_size = 'l';
 					f->pr = 3;

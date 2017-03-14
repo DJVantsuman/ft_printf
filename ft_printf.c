@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:31:43 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/14 18:02:30 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 18:27:09 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		lenght(const char *s, char c)
 	int	i;
 
 	i = 0;
-	while (is_spesify(s[i]) && s[i] != c && s[i] != 'p')
+	while (is_spesify(s[i]) && s[i] != c)
 		i++;
 	if (s[i] == '\0')
 		i--;
