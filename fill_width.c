@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 17:42:10 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/14 16:38:21 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 18:09:18 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*f_alt(t_strf *f, char *s)
 		s = ft_strjoin("0", s);
 	else if ((f->type == 'x' || f->type == 'X') && f->width > l)
 		return (typeX(f, s));
-	else if ((f->type == 'x' || f->type == 'X') && f->width <= l)
+	else if ((f->type == 'x' || f->type == 'X' || f->type == 'p') && f->width <= l)
 		if (is_f(f, '#'))
 			s = ft_strjoin(s1, s);
 	if (is_f(f, '-'))
