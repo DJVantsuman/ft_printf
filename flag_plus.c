@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 17:43:27 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/10 17:02:31 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:39:39 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static char	*f_plus(char *s, t_strf *f)
 	i = 0;
 	l = f->width;
 	t = ft_strlen(s);
-
 	if (is_f(f, '0'))
 		while (--l - t)
 			s = ft_strjoin("0", s);
@@ -57,7 +56,7 @@ static char	*f_plus(char *s, t_strf *f)
 	return (ft_strjoin("+", s));
 }
 
-char	*flag_minus(char *s, t_strf *f)
+char		*flag_minus(char *s, t_strf *f)
 {
 	int l;
 	int w;
@@ -73,7 +72,7 @@ char	*flag_minus(char *s, t_strf *f)
 	return (s);
 }
 
-char	*flag_plus(char *s, t_strf *f)
+char		*flag_plus(char *s, t_strf *f)
 {
 	int l;
 

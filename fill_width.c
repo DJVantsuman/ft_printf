@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 17:42:10 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/14 18:29:13 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:52:04 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ char	*f_alt(t_strf *f, char *s)
 	if ((f->type == 'o' || f->type == 'O') && s[0] != '0')
 		s = ft_strjoin("0", s);
 	else if ((f->type == 'x' || f->type == 'X') && f->width > l)
-		return (typeX(f, s));
-	else if ((f->type == 'x' || f->type == 'X' || f->type == 'p') && f->width <= l)
+		return (type_x(f, s));
+	else if ((f->type == 'x' || f->type == 'X' || f->type == 'p') &&
+			f->width <= l)
 		if (is_f(f, '#'))
 			s = ft_strjoin(s1, s);
 	if (is_f(f, '-'))
@@ -96,7 +97,6 @@ char	*fill_width(char *s, t_strf *f)
 	int	l;
 
 	i = 0;
-
 	l = ft_strlen(s);
 	if (is_f(f, '+') && f->type != 'u')
 		return (flag_plus(s, f));

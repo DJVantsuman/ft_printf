@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 21:17:33 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/09 19:12:11 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:42:28 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*write_num(uintmax_t n, int l, int f)
 {
 	char *s;
 
-//	printf("write_nam n = %jd\n", n);
 	s = (char *)malloc(sizeof(char) * l + 1);
 	s[l] = '\0';
 	if (f == 0)
@@ -36,7 +35,6 @@ char	*write_num(uintmax_t n, int l, int f)
 			l--;
 		}
 	}
-//	printf("write_nam s = %s\n", s);
 	return (s);
 }
 
@@ -46,7 +44,6 @@ char	*count_num(intmax_t n)
 	int			f;
 	uintmax_t	num;
 	uintmax_t	t;
-//	printf("count_nam n = %jd\n", n);
 
 	l = 1;
 	f = 0;

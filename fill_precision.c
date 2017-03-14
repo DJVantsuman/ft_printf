@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 19:12:02 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/13 17:09:59 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:33:34 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char		*fill_precision(char *s, t_strf *f)
 	int		l;
 	int		pr;
 
-//	printf("s = %s   pr = %d\n", s, f->precision);
 	l = ft_strlen(s);
 	pr = f->precision;
 	if (pr == 0 || (pr < 0 && (s[0] != '0' && s[1] != '\0')))
@@ -70,10 +69,10 @@ char		*fill_precision(char *s, t_strf *f)
 			&& f->type != 'C')
 		return (s);
 	else if (l >= pr && (f->type == 's' || f->type == 'S' ||
-			f->type == 'c' || f->type == 'C') && s[0] != '%')
-			return (get_str_2(s, pr));
+				f->type == 'c' || f->type == 'C') && s[0] != '%')
+		return (get_str_2(s, pr));
 	else if (l <= pr && f->type != 's' && f->type != 'S' &&
-			f->type != 'c' && f->type != 'C')
-			return (get_str_1(s, pr, l));
+				f->type != 'c' && f->type != 'C')
+		return (get_str_1(s, pr, l));
 	return (s);
 }

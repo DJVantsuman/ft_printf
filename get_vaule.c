@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 20:22:01 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/13 16:45:01 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:22:45 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*get_vaule(t_strf *f, va_list ap, const char *format)
 	char	*s;
 
 	s = fill_type(f, ap);
-//	printf("\ns1 = %s\n", s);
 	if (s == NULL)
 	{
 		s = non_type(format);
@@ -45,8 +44,6 @@ char	*get_vaule(t_strf *f, va_list ap, const char *format)
 		f->type = 'c';
 	}
 	s = fill_precision(s, f);
-//	printf("s2 = %s\n", s);
 	s = fill_width(s, f);
-//	printf("s3 = %s\n", s);
 	return (s);
 }

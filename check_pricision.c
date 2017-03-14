@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 18:40:18 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/13 16:15:25 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:44:31 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	get_num(t_strf *f, char *s)
 	f->precision = n;
 }
 
-void check_pr(const char *format, t_strf *f)
+void	check_pr(const char *format, t_strf *f)
 {
 	int i;
 
@@ -35,9 +35,10 @@ void check_pr(const char *format, t_strf *f)
 	while (is_spesify(format[++i]))
 		if (format[i] == '.')
 		{
-			if (!(format[i + 1] >= 49 && format[i + 1] <= 57) || format[i] == '0')
+			if (!(format[i + 1] >= 49 && format[i + 1] <= 57) ||
+					format[i] == '0')
 				f->precision = -1;
-		break ;
+			break ;
 		}
 }
 

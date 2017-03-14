@@ -6,13 +6,13 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 20:53:37 by itsuman           #+#    #+#             */
-/*   Updated: 2017/02/24 21:58:34 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:51:57 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*fillX(t_strf *f, char *s)
+char	*fill_x(t_strf *f, char *s)
 {
 	int		i;
 	int		l;
@@ -31,7 +31,7 @@ char	*fillX(t_strf *f, char *s)
 	return (ft_strjoin(a, s));
 }
 
-char	*typeX(t_strf *f, char *s)
+char	*type_x(t_strf *f, char *s)
 {
 	int		i;
 	int		l;
@@ -43,14 +43,14 @@ char	*typeX(t_strf *f, char *s)
 	a[1] = f->type;
 	a[2] = '\0';
 	if (is_f(f, '#') && is_f(f, '0') && (i - l - 2) > 0 && !(is_f(f, '-')))
-		return (fillX(f, s));
-	if (is_f(f, '#') && !(is_f(f, '0'))  && !(is_f(f, '-')))
+		return (fill_x(f, s));
+	if (is_f(f, '#') && !(is_f(f, '0')) && !(is_f(f, '-')))
 		return (fill(ft_strjoin(a, s), f, 1, ' '));
 	if (is_f(f, '#') && is_f(f, '-'))
 		return (fill(ft_strjoin(a, s), f, 0, ' '));
 	if (!(is_f(f, '#')) && is_f(f, '-'))
 		return (fill(s, f, 0, ' '));
-	if (!(is_f(f, '#')) && is_f(f, '0')  && !(is_f(f, '-')))
+	if (!(is_f(f, '#')) && is_f(f, '0') && !(is_f(f, '-')))
 		return (fill(s, f, 1, '0'));
 	return (fill(s, f, 1, ' '));
 }
