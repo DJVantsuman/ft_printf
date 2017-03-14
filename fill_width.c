@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 17:42:10 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/13 16:59:44 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 16:38:21 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*f1(char *s, t_strf *f)
 		return (f_alt(f, s));
 	else if (is_f(f, '-'))
 		return (fill(s, f, 0, ' '));
-	else if (is_f(f, '0') && s[0] != '-' && s[0] != '0')
+	else if (is_f(f, '0') && s[0] != '-' && s[0] != '0' && f->precision == 0)
 		return (fill(s, f, 1, '0'));
 	else if (is_f(f, '0') && s[0] == '-')
 		return (flag_0_and_num_min(s, f));
