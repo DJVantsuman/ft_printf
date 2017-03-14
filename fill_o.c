@@ -6,7 +6,7 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 21:45:18 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/13 18:03:15 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 18:45:27 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,15 @@ char	*ft_itoa_base(uintmax_t value, char type, size_t base)
 		all_bases = "0123456789ABCDEF";
 	else
 		all_bases = "0123456789abcdef";
-//	printf("value = %zu\n", value);
-//	if (value == 18446744069414584320)
-//		return ("ffffffff00000000");
-//	if (value < 0 && base == 10)
-//		str = ft_itoa_for_minus(value, base, all_bases);
-//	else
-//	{
-//		if (value < 0)
-//			value = -value;
-		m = count_string(value, base);
-		str = (char *)malloc(sizeof(char) * m + 1);
-		str[m] = '\0';
-		while (value >= base)
-		{
-			str[--m] = all_bases[value % base];
-			value = value / base;
-		}
-		str[--m] = all_bases[value];
-//	}
+	m = count_string(value, base);
+	str = (char *)malloc(sizeof(char) * m + 1);
+	str[m] = '\0';
+	while (value >= base)
+	{
+		str[--m] = all_bases[value % base];
+		value = value / base;
+	}
+	str[--m] = all_bases[value];
 	return (str);
 }
 
@@ -103,7 +93,7 @@ char	*fill_ox(t_strf *f, va_list ap)
 		n = (signed char)(va_arg(ap, int));
 	else
 		n = va_arg(ap, unsigned int);
-	if (f->type == 'x' || f->type == 'X')
+	if (f->type == 'x' || f->type == 'X' || f->type == 'p')
 		base = 16;
 	else
 		base = 8;
