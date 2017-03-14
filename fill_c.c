@@ -6,20 +6,18 @@
 /*   By: itsuman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 17:55:56 by itsuman           #+#    #+#             */
-/*   Updated: 2017/03/12 19:16:30 by itsuman          ###   ########.fr       */
+/*   Updated: 2017/03/14 19:19:58 by itsuman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*fill_c(va_list ap, t_strf *f)
+char	*fill_c_2(char c, t_strf *f)
 {
 	char	*a;
-	char	c;
 	int		i;
 
 	a = malloc(sizeof(char) * 2);
-	c = (char)va_arg(ap, int);
 	if (c == '\0')
 	{
 		g_ivan++;
@@ -39,4 +37,18 @@ char	*fill_c(va_list ap, t_strf *f)
 	a[0] = c;
 	a[1] = '\0';
 	return (a);
+}
+
+char	*fill_c(va_list ap, t_strf *f)
+{
+	char c;
+
+	c = (char)va_arg(ap, int);
+	if (c == 0 && !(is_f(f, ' ')) && f->width == 0)
+	{
+		write(1, &c, 1);
+		g_ivan++;
+		return ("");
+	}
+	return (fill_c_2(c, f));
 }
